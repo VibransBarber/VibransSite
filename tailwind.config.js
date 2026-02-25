@@ -4,14 +4,13 @@ export default {
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
-    darkMode: 'class',
     theme: {
         extend: {
             colors: {
                 "primary": "#ecc813",
-                "background-light": "#f8f8f6",
-                "background-dark": "#181711",
-                "accent-dark": "#2d2a1c",
+                "background-dark": "#12110a",
+                "surface-dark": "#1c1a12",
+                "accent-dark": "#2a2718",
             },
             fontFamily: {
                 "display": ["Manrope", "sans-serif"],
@@ -21,6 +20,7 @@ export default {
                 "DEFAULT": "0.25rem",
                 "lg": "0.5rem",
                 "xl": "0.75rem",
+                "2xl": "1rem",
                 "full": "9999px"
             },
         },
