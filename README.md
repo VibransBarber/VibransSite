@@ -60,7 +60,25 @@
 4.  **Ejecutar en modo desarrollo:**
     ```bash
     npm run dev
+    ---
+
+## 🗄️ Base de Datos (Migraciones)
+
+El proyecto utiliza **Supabase CLI** para gestionar el esquema de la base de datos de forma segura.
+
+### Sincronización Automática (Codespaces)
+
+Si estás trabajando en un GitHub Codespace, la CLI ya está instalada. Para sincronizar tus tablas:
+
+1.  **Iniciar sesión** (solo la primera vez):
+    ```bash
+    supabase login
     ```
+2.  **Ejecutar migración**:
+    ```bash
+    bash supabase/deploy-db.sh
+    ```
+    *Nota: El script te solicitará la contraseña de la base de datos de tu proyecto de Supabase.*
 
 ---
 
