@@ -4,8 +4,8 @@
 Build a premium urban dark mode web application for 'Vibrans Barbershop' using React, Tailwind CSS, and Supabase. The app will feature online check-in, appointment booking, membership management, and technical hair notes for users.
 
 ## User Stories (HUs)
-- **HU1: Registro y Agendamiento (Online Check-in)**
-  - Como cliente, quiero registrarme y reservar un turno en tiempo real para minimizar mi tiempo de espera.
+- **HU1: Online Check-in (Fila Virtual)**
+  - Como cliente, quiero ver el tiempo de espera y anotarme en la fila online con mi número telefónico, para minimizar mi tiempo de espera en la barbería.
 - **HU2: Catálogo de Servicios**
   - Como cliente, quiero ver la lista de servicios con precios y duraciones para elegir el adecuado.
 - **HU3: Perfil y Notas Técnicas (Vibrans Notes)**
@@ -14,20 +14,23 @@ Build a premium urban dark mode web application for 'Vibrans Barbershop' using R
   - Como cliente, quiero ver y seleccionar a mi barbero preferido.
 - **HU5: Membresías**
   - Como cliente, quiero suscribirme a planes de membresía para obtener beneficios exclusivos.
+- **HU7: Registro de Usuarios Nuevos**
+  - Como cliente nuevo, quiero registrarme en la plataforma usando mi correo o redes sociales para crear una cuenta personal.
+  - Criterios de Aceptación:
+    1. El usuario debe poder registrarse con correo y contraseña válidos.
+    2. El usuario debe poder registrarse usando su cuenta de Google, Facebook o Instagram.
+    3. El sistema debe validar que el correo no esté registrado previamente.
+    4. Al completar el registro, el usuario debe quedar almacenado exitosamente en la base de datos de Auth.
 
 ## Proposed Changes
 
 ### [Component: Backend (Supabase)]
-- [NEW] Create `users` table (linked to Auth).
-- [NEW] Create `services` table (id, name, description, price, duration).
-- [NEW] Create `appointments` table (id, user_id, service_id, barber_id, scheduled_at, status).
-- [NEW] Create `vibrans_notes` table (id, user_id, notes, created_at).
-- [NEW] Create `memberships` table (id, name, benefits, price).
-- [NEW] Implement RLS policies for all tables.
-- [NEW] Create seed script for initial services and barbers.
+- Utilize the existing `users` table linked to Supabase Auth.
+- Ensure RLS policies allow authenticated users to perform actions related to their own data.
 
 ### [Component: Frontend (React & Stitch)]
-- [NEW] Landing Page: Online Check-in flow.
+- [NEW] Auth Pages: Login and New User Registration (HU7).
+- [NEW] Landing Page: Online Check-in flow (HU1).
 - [NEW] User Dashboard: Access to Vibrans Notes and Appointments.
 - [NEW] Booking System: Service/Barber selection.
 - [NEW] Membership Section: Plan comparison.

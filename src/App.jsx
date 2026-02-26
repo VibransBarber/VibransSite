@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Register from './pages/Register';
 
 function App() {
     const [currentPage, setCurrentPage] = useState('home');
@@ -17,6 +18,13 @@ function App() {
                     View Home
                 </button>
                 <button
+                    onClick={() => setCurrentPage('register')}
+                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${currentPage === 'register' ? 'bg-primary text-background-dark' : 'bg-accent-dark text-slate-100'
+                        }`}
+                >
+                    View Register
+                </button>
+                <button
                     onClick={() => setCurrentPage('dashboard')}
                     className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${currentPage === 'dashboard' ? 'bg-primary text-background-dark' : 'bg-accent-dark text-slate-100'
                         }`}
@@ -25,7 +33,9 @@ function App() {
                 </button>
             </div>
 
-            {currentPage === 'home' ? <Home /> : <Dashboard />}
+            {currentPage === 'home' && <Home onNavigate={setCurrentPage} />}
+            {currentPage === 'register' && <Register onNavigate={setCurrentPage} />}
+            {currentPage === 'dashboard' && <Dashboard onNavigate={setCurrentPage} />}
         </div>
     );
 }
