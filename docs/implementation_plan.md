@@ -35,6 +35,13 @@ Build a premium urban dark mode web application for 'Vibrans Barbershop' using R
     2. El nombre, correo electrónico y (si existe) la fotografía del usuario deben mostrarse dinámicamente reemplazando los datos de prueba (hardcoded).
     3. El sistema debe proteger la vista: si un usuario sin sesión intenta entrar al Dashboard, debe ser redirigido al Login.
     4. Debe existir un botón funcional para "Cerrar Sesión" que elimine el token local y redirija al usuario al inicio.
+- **HU10: Menú Contextual de Perfil (Navegación Dinámica)**
+  - Como usuario visitante o autenticado, quiero tener un menú desplegable al hacer clic en el ícono de mi perfil para acceder rápidamente a las acciones de mi cuenta (estilo GitHub).
+  - Criterios de Aceptación:
+    1. Si no hay sesión activa, el ícono debe ser genérico, y al hacer clic desplegar opciones para "Iniciar Sesión" y "Crear Cuenta".
+    2. Si hay sesión activa, el ícono debe mostrar el avatar o iniciales reales del usuario provenientes de Supabase.
+    3. El menú para usuarios autenticados debe mostrar detalles básicos de usuario (nombre/email) y enlazar a su "Dashboard/Perfil" además de presentar la opción "Cerrar sesión".
+    4. El menú debe detectar el estado de sesión y refrescarse automáticamente gracias a `supabase.auth.onAuthStateChange`.
 
 ## Proposed Changes
 
