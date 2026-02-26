@@ -21,6 +21,13 @@ Build a premium urban dark mode web application for 'Vibrans Barbershop' using R
     2. El usuario debe poder registrarse usando su cuenta de Google, Facebook o Instagram.
     3. El sistema debe validar que el correo no esté registrado previamente.
     4. Al completar el registro, el usuario debe quedar almacenado exitosamente en la base de datos de Auth.
+- **HU8: Iniciar Sesión de Usuarios (Login)**
+  - Como cliente con cuenta existente, quiero hacer login para consultar mis reservas y datos. En caso de no estar registrado, quiero tener un enlace que me lleve a la pantalla de registro.
+  - Criterios de Aceptación:
+    1. La interfaz principal de autenticación debe ser la pantalla de Login.
+    2. La pantalla de Login debe incluir un enlace explícito que dirija a la pantalla de Registro (HU7).
+    3. El usuario debe poder autenticarse ingresando sus credenciales de correo/contraseña y ser redirigido a su Dashboard.
+    4. El usuario debe poder iniciar sesión rápidamente usando los proveedores sociales configurados.
 
 ## Proposed Changes
 

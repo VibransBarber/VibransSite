@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
+import Login from './pages/Login';
 import AuthConfirmation from './pages/AuthConfirmation';
 import { supabase } from './lib/supabaseClient';
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('home');
+    // La app inicia por defecto pidiendo Login primero
+    const [currentPage, setCurrentPage] = useState('login');
 
     // Escuchar el evento de retorno de Auth de Supabase
     useEffect(() => {
@@ -21,9 +23,9 @@ function App() {
         } else {
             // Verificar si ya hay una sesión activa al arrancar
             supabase.auth.getSession().then(({ data: { session } }) => {
-                if (session && currentPage === 'home') {
-                    // Podríamos redirigir automáticamente al dashboard si ya inició sesión
-                    // setCurrentPage('dashboard');
+                if (session && currentPage === 'login') {
+                    // Auto-login al dashboard si la sesión de supabase sigue viva
+                    setCurrentPage('dashboard');
                 }
             });
         }
@@ -41,11 +43,11 @@ function App() {
                     View Home
                 </button>
                 <button
-                    onClick={() => setCurrentPage('register')}
-                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${currentPage === 'register' ? 'bg-primary text-background-dark' : 'bg-accent-dark text-slate-100'
+                    onClick={() => setCurrentPage('login')}
+                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${currentPage === 'login' ? 'bg-primary text-background-dark' : 'bg-accent-dark text-slate-100'
                         }`}
                 >
-                    View Register
+                    View Login
                 </button>
                 <button
                     onClick={() => setCurrentPage('dashboard')}
@@ -57,6 +59,7 @@ function App() {
             </div>
 
             {currentPage === 'home' && <Home onNavigate={setCurrentPage} />}
+            {currentPage === 'login' && <Login onNavigate={setCurrentPage} />}
             {currentPage === 'register' && <Register onNavigate={setCurrentPage} />}
             {currentPage === 'dashboard' && <Dashboard onNavigate={setCurrentPage} />}
             {currentPage === 'confirmation' && <AuthConfirmation onNavigate={setCurrentPage} />}
