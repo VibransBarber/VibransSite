@@ -28,6 +28,13 @@ Build a premium urban dark mode web application for 'Vibrans Barbershop' using R
     2. La pantalla de Login debe incluir un enlace explícito que dirija a la pantalla de Registro (HU7).
     3. El usuario debe poder autenticarse ingresando sus credenciales de correo/contraseña y ser redirigido a su Dashboard.
     4. El usuario debe poder iniciar sesión rápidamente usando los proveedores sociales configurados.
+- **HU9: Visualizar Perfil de Usuario (Dashboard Real)**
+  - Como cliente autenticado, quiero ver mis datos personales reales en mi perfil para verificar que mi cuenta está configurada correctamente.
+  - Criterios de Aceptación:
+    1. El componente Dashboard debe recuperar la sesión activa directamente desde Supabase.
+    2. El nombre, correo electrónico y (si existe) la fotografía del usuario deben mostrarse dinámicamente reemplazando los datos de prueba (hardcoded).
+    3. El sistema debe proteger la vista: si un usuario sin sesión intenta entrar al Dashboard, debe ser redirigido al Login.
+    4. Debe existir un botón funcional para "Cerrar Sesión" que elimine el token local y redirija al usuario al inicio.
 
 ## Proposed Changes
 

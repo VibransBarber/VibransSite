@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Sidebar } from '../components/dashboard/Sidebar';
 import { VibransNotes } from '../components/dashboard/VibransNotes';
-import { ShieldCheck, Search, Bell, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Search, Bell, LogOut } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
-const Dashboard = () => {
-    const [activeTab, setActiveTab] = React.useState('profile');
+const Dashboard = ({ onNavigate }) => {
+    const [activeTab, setActiveTab] = useState('profile');
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data: { session }, error } = await supabase.auth.getSession();
+
+            if (error || !session) {
+                // Denegar acceso si no hay sesión
+                if (onNavigate) onNavigate('login');
+            } else {
+                setUser(session.user);
+            }
+            setLoading(false);
+        };
+
+        fetchUser();
+    }, [onNavigate]);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        if (onNavigate) onNavigate('home');
+    };
+
+    if (loading) {
+        return <div className="flex h-screen items-center justify-center bg-background-dark text-primary">Cargando perfil...</div>;
+    }
+
+    // Helper para obtener el nombre a mostrar (Metadata full_name de OAuth o email)
+    const displayName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Cliente';
+    const initials = displayName.substring(0, 2).toUpperCase();
 
     return (
         <div className="flex h-screen overflow-hidden bg-background-dark text-slate-100">
@@ -14,8 +46,8 @@ const Dashboard = () => {
                 {/* Header */}
                 <header className="flex items-center justify-between px-10 py-6 border-b border-accent-dark sticky top-0 bg-background-dark/80 backdrop-blur-md z-10">
                     <div className="flex flex-col">
-                        <h2 className="font-serif text-3xl font-bold">Bienvenido de nuevo, Alex</h2>
-                        <p className="text-slate-500 text-sm">Miembro Platino desde 2023</p>
+                        <h2 className="font-serif text-3xl font-bold">Bienvenido de nuevo, {displayName}</h2>
+                        <p className="text-slate-500 text-sm">{user?.email}</p>
                     </div>
                     <div className="flex items-center gap-6">
                         <div className="relative w-64 hidden md:block">
@@ -28,9 +60,23 @@ const Dashboard = () => {
                         </div>
                         <div className="flex items-center gap-3">
                             <Bell className="w-5 h-5 text-slate-400 cursor-pointer hover:text-primary" />
-                            <div className="h-10 w-10 rounded-full border-2 border-primary p-0.5">
-                                <div className="h-full w-full rounded-full bg-slate-700 flex items-center justify-center">AS</div>
-                            </div>
+
+                            {user?.user_metadata?.avatar_url ? (
+                                <img src={user.user_metadata.avatar_url} alt="Profile" className="h-10 w-10 rounded-full border-2 border-primary object-cover" />
+                            ) : (
+                                <div className="h-10 w-10 rounded-full border-2 border-primary p-0.5">
+                                    <div className="h-full w-full rounded-full bg-slate-700 flex items-center justify-center font-bold text-sm">{initials}</div>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={handleLogout}
+                                className="ml-4 flex items-center gap-2 px-3 py-1.5 bg-red-500/10 text-red-500 border border-red-500/20 rounded-lg hover:bg-red-500 hover:text-white transition-colors text-sm font-medium"
+                                title="Cerrar sesión"
+                            >
+                                <LogOut className="w-4 h-4" />
+                                <span className="hidden sm:inline">Cerrar Sesión</span>
+                            </button>
                         </div>
                     </div>
                 </header>
