@@ -10,24 +10,24 @@ Then("debería ver la sección {string}", (section) => {
 
 Then("debería ver el formulario de {string}", (formTitle) => {
     cy.contains(formTitle, { matchCase: false }).should("be.visible");
-    cy.get('input[type="tel"]').should("be.visible");
+    cy.get('input[type="tel"]:visible').should("be.visible");
 });
 
 Then("el botón de {string} debería estar visible", (buttonText) => {
-    cy.get('button').contains(buttonText, { matchCase: false }).should("be.visible");
+    cy.get('button:visible').contains(buttonText, { matchCase: false }).should("be.visible");
 });
 
 When("el cliente ingresa su número {string} en el campo de teléfono", (phone) => {
-    cy.get('input[type="tel"]').type(phone);
+    cy.get('input[type="tel"]:visible').type(phone);
 });
 
 When("hace clic en el botón de check-in", () => {
     // Prevent actual form submission from reloading or failing in mock mode
     cy.get('form').invoke('submit', (e) => e.preventDefault());
-    cy.get('button').contains('Check-in Now').click();
+    cy.get('button:visible').contains('Check-in Now').click();
 });
 
 Then("el sistema debería procesar la solicitud", () => {
     // En este punto es un mock (alert), por lo que verificamos que el input se llenó
-    cy.get('input[type="tel"]').should("have.value", "555-0199");
+    cy.get('input[type="tel"]:visible').should("have.value", "555-0199");
 });
