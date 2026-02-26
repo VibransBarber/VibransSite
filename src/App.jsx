@@ -7,8 +7,8 @@ import AuthConfirmation from './pages/AuthConfirmation';
 import { supabase } from './lib/supabaseClient';
 
 function App() {
-    // La app inicia por defecto pidiendo Login primero
-    const [currentPage, setCurrentPage] = useState('login');
+    // La app inicia por defecto en la Home, y el Login se accede desde el ícono de perfil
+    const [currentPage, setCurrentPage] = useState('home');
 
     // Escuchar el evento de retorno de Auth de Supabase
     useEffect(() => {

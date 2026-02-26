@@ -6,10 +6,10 @@ import { Barbers } from '../components/home/Barbers';
 import { Memberships } from '../components/home/Memberships';
 import { Footer } from '../components/layout/Footer';
 
-const Home = () => {
+const Home = ({ onNavigate }) => {
     return (
         <div className="bg-background-dark min-h-screen text-slate-100 selection:bg-primary/30">
-            <Header />
+            <Header onNavigate={onNavigate} />
             <main>
                 <Hero />
                 <Services />

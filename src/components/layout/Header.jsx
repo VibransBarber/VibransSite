@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scissors, User } from 'lucide-react';
 
-export const Header = () => {
+export const Header = ({ onNavigate }) => {
     return (
         <header className="flex items-center justify-between border-b border-white/10 px-6 py-4 lg:px-20 bg-background-dark">
             <div className="flex items-center gap-3">
@@ -20,8 +20,12 @@ export const Header = () => {
                 <button className="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95">
                     Reservar Ahora
                 </button>
-                <div className="bg-accent-dark border border-white/10 rounded-full w-10 h-10 flex items-center justify-center overflow-hidden">
-                    <User className="text-slate-400 w-5 h-5" />
+                <div
+                    onClick={() => onNavigate && onNavigate('login')}
+                    className="bg-accent-dark border border-white/10 rounded-full w-10 h-10 flex items-center justify-center overflow-hidden cursor-pointer hover:bg-gray-800 transition-colors"
+                    title="Iniciar Sesión"
+                >
+                    <User className="text-slate-400 w-5 h-5 pointer-events-none" />
                 </div>
             </div>
         </header>
