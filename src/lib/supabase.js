@@ -1,15 +1,27 @@
 import { createClient } from '@supabase/supabase-js'
 
-let supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder'
+// Limpiamos la URL para evitar errores de duplicación o protocolos faltantes
+let rawUrl = import.meta.env.VITE_SUPABASE_URL || ''
+let supabaseUrl = rawUrl.trim()
 
-// Safeguard: If the user only provided the project ID instead of the full URL
 if (supabaseUrl && !supabaseUrl.startsWith('http')) {
-    supabaseUrl = `https://${supabaseUrl}.supabase.co`
+    // Si el usuario puso el ID de proyecto o la URL sin https
+    if (supabaseUrl.includes('.supabase.co')) {
+        supabaseUrl = `https://${supabaseUrl}`
+    } else {
+        supabaseUrl = `https://${supabaseUrl}.supabase.co`
+    }
+}
+
+const supabaseAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY || '').trim()
+
+// Log de ayuda (puedes borrarlo después de que funcione)
+if (supabaseUrl && supabaseUrl !== 'https://placeholder.supabase.co') {
+    console.log('Intentando conectar a Supabase:', supabaseUrl)
 }
 
 if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
-    console.error('Supabase credentials missing. The app will not function correctly until VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in GitHub Secrets.')
+    console.error('ERROR: Credenciales de Supabase no configuradas correctamente en el entorno (VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY).')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl || 'https://placeholder.supabase.co', supabaseAnonKey || 'placeholder')
