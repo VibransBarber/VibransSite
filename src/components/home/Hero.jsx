@@ -21,20 +21,20 @@ export const Hero = () => {
                 <div className="relative z-20 flex flex-col gap-6 max-w-3xl">
                     <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-2 mx-auto">
                         <Stars className="w-4 h-4" />
-                        Premium Grooming Experience
+                        Experiencia de Barbería Premium
                     </div>
                     <h1 className="text-slate-100 text-5xl md:text-7xl font-serif font-black leading-[1.1] tracking-tight">
-                        Precision, Style, <br /><span className="text-primary italic">Tradition</span>
+                        Precisión, Estilo, <br /><span className="text-primary italic">Tradición</span>
                     </h1>
                     <p className="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-xl mx-auto">
-                        Experience the pinnacle of urban grooming with our master barbers. Where classic techniques meet contemporary style.
+                        Experimenta la cúspide del aseo urbano con nuestros barberos maestros. Donde las técnicas clásicas se encuentran con el estilo contemporáneo.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 mt-4">
                         <button className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-background-dark text-base font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
-                            Book Appointment
+                            Reservar Cita
                         </button>
                         <button className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white/5 border border-white/10 text-slate-100 text-base font-bold backdrop-blur-sm hover:bg-white/10 transition-all">
-                            View Gallery
+                            Ver Galería
                         </button>
                     </div>
                 </div>

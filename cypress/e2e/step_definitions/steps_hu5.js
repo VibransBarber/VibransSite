@@ -16,7 +16,7 @@ Then("el plan {string} debería destacar como popular con {string}", (plan, pric
     // Encontramos el tarjeta del plan y verificamos que tenga el precio y el texto "Most Popular"
     cy.contains('h3', plan).parents('.group').within(() => {
         cy.contains(price).should("be.visible");
-        cy.contains(/Most Popular/i).should("be.visible");
+        cy.contains(/Más Popular/i).should("be.visible");
     });
 });
 

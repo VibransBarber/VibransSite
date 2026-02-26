@@ -10,17 +10,17 @@ export const Footer = () => {
                         <Scissors className="text-primary w-6 h-6" />
                         <h2 className="text-slate-100 text-lg font-extrabold tracking-tight uppercase">Vibrans Barbershop</h2>
                     </div>
-                    <p className="text-sm max-w-xs">Premium urban grooming destination for the modern gentleman who values precision and style.</p>
+                    <p className="text-sm max-w-xs">Destino de aseo urbano premium para el caballero moderno que valora la precisión y el estilo.</p>
                 </div>
                 <div className="flex flex-wrap gap-12">
                     <div className="flex flex-col gap-3">
-                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Quick Links</h4>
-                        <a className="hover:text-primary transition-colors" href="#">Home</a>
-                        <a className="hover:text-primary transition-colors" href="#">Services</a>
-                        <a className="hover:text-primary transition-colors" href="#">Pricing</a>
+                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Enlaces Rápidos</h4>
+                        <a className="hover:text-primary transition-colors" href="#">Inicio</a>
+                        <a className="hover:text-primary transition-colors" href="#services">Servicios</a>
+                        <a className="hover:text-primary transition-colors" href="#memberships">Membresías</a>
                     </div>
                     <div className="flex flex-col gap-3">
-                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Connect</h4>
+                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Conectar</h4>
                         <div className="flex gap-4">
                             <Instagram className="w-5 h-5 hover:text-primary cursor-pointer" />
                             <Facebook className="w-5 h-5 hover:text-primary cursor-pointer" />
@@ -28,7 +28,7 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className="flex flex-col gap-3">
-                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Contact</h4>
+                        <h4 className="text-slate-100 font-bold text-sm uppercase tracking-wider">Contacto</h4>
                         <div className="flex gap-2 items-start">
                             <MapPin className="w-4 h-4 text-primary mt-1" />
                             <p className="text-sm">123 Urban Avenue, NY</p>
@@ -37,10 +37,10 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-[10px] uppercase font-bold tracking-widest gap-4">
-                <p>© 2024 Vibrans Barbershop. All Rights Reserved.</p>
+                <p>© 2024 Vibrans Barbershop. Todos los derechos reservados.</p>
                 <div className="flex gap-6">
-                    <a className="hover:text-slate-300" href="#">Privacy Policy</a>
-                    <a className="hover:text-slate-300" href="#">Terms of Service</a>
+                    <a className="hover:text-slate-300" href="#">Política de Privacidad</a>
+                    <a className="hover:text-slate-300" href="#">Términos de Servicio</a>
                 </div>
             </div>
         </footer>

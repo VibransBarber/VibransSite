@@ -14,15 +14,15 @@ const Dashboard = () => {
                 {/* Header */}
                 <header className="flex items-center justify-between px-10 py-6 border-b border-accent-dark sticky top-0 bg-background-dark/80 backdrop-blur-md z-10">
                     <div className="flex flex-col">
-                        <h2 className="font-serif text-3xl font-bold">Welcome back, Alex</h2>
-                        <p className="text-slate-500 text-sm">Platinum Member since 2023</p>
+                        <h2 className="font-serif text-3xl font-bold">Bienvenido de nuevo, Alex</h2>
+                        <p className="text-slate-500 text-sm">Miembro Platino desde 2023</p>
                     </div>
                     <div className="flex items-center gap-6">
                         <div className="relative w-64 hidden md:block">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
                             <input
                                 className="w-full bg-accent-dark border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary/50 placeholder:text-slate-600"
-                                placeholder="Search services..."
+                                placeholder="Buscar servicios..."
                                 type="text"
                             />
                         </div>
@@ -44,10 +44,10 @@ const Dashboard = () => {
                             <div className="relative z-10">
                                 <div className="flex items-center gap-2 mb-4">
                                     <ShieldCheck className="text-primary w-4 h-4" />
-                                    <span className="text-xs font-black uppercase tracking-widest text-primary">Elite Status</span>
+                                    <span className="text-xs font-black uppercase tracking-widest text-primary">Estatus Élite</span>
                                 </div>
-                                <h3 className="font-serif text-4xl mb-2 italic text-slate-100">Platinum Membership</h3>
-                                <p className="text-slate-400 max-w-md">Priority booking, complimentary refreshments, and 20% off all grooming services.</p>
+                                <h3 className="font-serif text-4xl mb-2 italic text-slate-100">Membresía Platino</h3>
+                                <p className="text-slate-400 max-w-md">Reserva prioritaria, bebidas de cortesía y 20% de descuento en todos los servicios de barbería.</p>
                             </div>
                             <div className="flex items-center justify-between mt-12 relative z-10">
                                 <div className="flex -space-x-3">
@@ -56,49 +56,49 @@ const Dashboard = () => {
                                     <div className="w-8 h-8 rounded-full border-2 border-background-dark bg-slate-800 flex items-center justify-center text-xs font-bold text-white">X</div>
                                 </div>
                                 <button className="px-6 py-2 bg-primary/10 border border-primary/30 text-primary rounded-lg text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
-                                    View Benefits
+                                    Ver Beneficios
                                 </button>
                             </div>
                         </div>
 
                         {/* Countdown Timer */}
                         <div className="bg-surface-dark border border-accent-dark rounded-xl p-8 flex flex-col items-center justify-center text-center shadow-xl">
-                            <span className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-6">Next Appointment</span>
+                            <span className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-6">Próxima Cita</span>
                             <div className="flex gap-4 mb-6">
                                 <div className="flex flex-col">
                                     <span className="text-4xl font-serif font-bold text-primary">02</span>
-                                    <span className="text-[10px] text-slate-600 uppercase font-bold">Days</span>
+                                    <span className="text-[10px] text-slate-600 uppercase font-bold">Días</span>
                                 </div>
                                 <span className="text-4xl font-serif font-bold text-slate-700">:</span>
                                 <div className="flex flex-col">
                                     <span className="text-4xl font-serif font-bold text-primary">04</span>
-                                    <span className="text-[10px] text-slate-600 uppercase font-bold">Hours</span>
+                                    <span className="text-[10px] text-slate-600 uppercase font-bold">Horas</span>
                                 </div>
                             </div>
-                            <p className="text-sm font-medium text-slate-300">Skin Fade & Beard Trim</p>
-                            <p className="text-xs text-slate-500">with Master Barber Julian</p>
+                            <p className="text-sm font-medium text-slate-300">Skin Fade y Arreglo de Barba</p>
+                            <p className="text-xs text-slate-500">con el Barbero Maestro Julian</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <VibransNotes />
                         <div className="space-y-6">
-                            <h3 className="font-serif text-2xl font-bold">Last Session</h3>
+                            <h3 className="font-serif text-2xl font-bold">Última Sesión</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="aspect-square rounded-xl bg-slate-800 flex items-center justify-center border border-white/5">
-                                    <span className="text-slate-500 text-xs text-center p-4">Styling Photo 1</span>
+                                    <span className="text-slate-500 text-xs text-center p-4">Foto de Estilo 1</span>
                                 </div>
                                 <div className="aspect-square rounded-xl bg-slate-800 flex items-center justify-center border border-white/5">
-                                    <span className="text-slate-500 text-xs text-center p-4">Styling Photo 2</span>
+                                    <span className="text-slate-500 text-xs text-center p-4">Foto de Estilo 2</span>
                                 </div>
                             </div>
                             <div className="p-6 bg-accent-dark/50 border border-accent-dark rounded-xl flex items-center justify-between">
                                 <div>
-                                    <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Last Visit</p>
-                                    <p className="font-bold text-white mt-1">March 14, 2024</p>
+                                    <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Última Visita</p>
+                                    <p className="font-bold text-white mt-1">14 de Marzo, 2024</p>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Total Spent</p>
+                                    <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Total Gastado</p>
                                     <p className="font-bold text-primary mt-1">$65.00</p>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ When("el cliente ingresa su número {string} en el campo de teléfono", (phone) 
 When("hace clic en el botón de check-in", () => {
     // Prevent actual form submission from reloading or failing in mock mode
     cy.get('form').invoke('submit', (e) => e.preventDefault());
-    cy.get('button:visible').contains('Check-in Now').click();
+    cy.get('button:visible').contains('Check-in Ahora').click();
 });
 
 Then("el sistema debería procesar la solicitud", () => {

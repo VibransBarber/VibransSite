@@ -5,9 +5,9 @@ Feature: HU1 - Online Check-in
 
   Scenario: Ver tiempo de espera y formulario de check-in
     Given que el cliente está en la página principal
-    Then debería ver la sección "Current Wait"
-    And debería ver el formulario de "Online Check-in"
-    And el botón de "Check-in Now" debería estar visible
+    Then debería ver la sección "Tiempo de Espera"
+    And debería ver el formulario de "Check-in Online"
+    And el botón de "Check-in Ahora" debería estar visible
 
   Scenario: Interactuar con el formulario de Check-in
     Given que el cliente está en la página principal

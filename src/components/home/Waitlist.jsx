@@ -34,15 +34,15 @@ export const WaitlistCounter = () => {
                 <Clock className="w-24 h-24 text-primary" />
             </div>
             <div className="flex flex-col gap-1">
-                <p className="text-slate-400 text-sm font-semibold uppercase tracking-widest">Current Wait</p>
+                <p className="text-slate-400 text-sm font-semibold uppercase tracking-widest">Tiempo de Espera</p>
                 <div className="flex items-baseline gap-2">
                     <p className="text-primary tracking-tight text-5xl font-black font-serif">{waitTime}</p>
-                    <p className="text-slate-100 text-xl font-bold">mins</p>
+                    <p className="text-slate-100 text-xl font-bold">min</p>
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-4 text-emerald-400 font-medium text-sm bg-emerald-500/10 w-fit px-3 py-1 rounded-full">
                 <TrendingDown className="w-4 h-4" />
-                <span>Shortest wait time today</span>
+                <span>Menor tiempo de espera hoy</span>
             </div>
         </div>
     );
@@ -56,7 +56,7 @@ export const OnlineCheckIn = () => {
         if (!phone) return;
 
         // Implementation of check-in logic with Supabase
-        alert(`Checking in with phone: ${phone}. (Mock logic)`);
+        alert(`Haciendo check-in con teléfono: ${phone}. (Lógica de prueba)`);
     };
 
     return (
@@ -64,9 +64,9 @@ export const OnlineCheckIn = () => {
             <div className="flex flex-col gap-2">
                 <h3 className="text-slate-100 text-2xl font-bold font-serif flex items-center gap-3">
                     <Smartphone className="text-primary w-6 h-6" />
-                    Online Check-in
+                    Check-in Online
                 </h3>
-                <p className="text-slate-400 text-base">Skip the queue. Save your spot in line before you even leave home.</p>
+                <p className="text-slate-400 text-base">Sáltate la fila. Guarda tu lugar antes de salir de casa.</p>
             </div>
             <form onSubmit={handleCheckIn} className="w-full max-w-xl">
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -76,18 +76,18 @@ export const OnlineCheckIn = () => {
                         </div>
                         <input
                             className="w-full h-14 pl-12 pr-4 rounded-xl bg-background-dark/50 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary text-slate-100 placeholder:text-slate-600 transition-all"
-                            placeholder="Enter phone number"
+                            placeholder="Ingresa número de teléfono"
                             type="tel"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
                     <button type="submit" className="h-14 px-8 bg-primary text-background-dark rounded-xl font-bold hover:bg-primary/90 active:scale-[0.98] transition-all whitespace-nowrap flex items-center justify-center gap-2">
-                        Check-in Now
+                        Check-in Ahora
                         <ArrowRight className="w-5 h-5" />
                     </button>
                 </div>
-                <p className="text-slate-600 text-[10px] mt-3 uppercase tracking-tighter">By checking in, you agree to receive an SMS notification when your barber is ready.</p>
+                <p className="text-slate-600 text-[10px] mt-3 uppercase tracking-tighter">Al hacer check-in, aceptas recibir una notificación por SMS cuando tu barbero esté listo.</p>
             </form>
         </div>
     );

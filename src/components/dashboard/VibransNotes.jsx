@@ -27,20 +27,20 @@ export const VibransNotes = () => {
     };
 
     const defaultNotes = [
-        { icon: Scissors, label: 'Fade Preference', note: 'Guard 2 on sides, low drop fade, textured top for matte clay styling.' },
-        { icon: User, label: 'Beard Sculpt', note: 'Line up cheekbones, taper into sideburns, maintain length at chin.' },
-        { icon: Coffee, label: 'Service Preference', note: 'Signature espresso, double shot. Prefers hot towel shave finish.' }
+        { icon: Scissors, label: 'Preferencia de Fade', note: 'Guía 2 a los lados, low drop fade, parte superior texturizada para peinado con arcilla mate.' },
+        { icon: User, label: 'Esculpido de Barba', note: 'Alineación en pómulos, disminución en patillas, mantener longitud en la barbilla.' },
+        { icon: Coffee, label: 'Preferencia de Servicio', note: 'Espresso de la casa, doble carga. Prefiere acabado de afeitado con toalla caliente.' }
     ];
 
     return (
         <div className="bg-surface-dark border border-accent-dark rounded-xl p-8 shadow-xl">
             <div className="flex items-center justify-between mb-8">
-                <h3 className="font-serif text-2xl font-bold text-slate-100">Vibrans Notes</h3>
+                <h3 className="font-serif text-2xl font-bold text-slate-100">Notas Vibrans</h3>
                 <Edit3 className="text-slate-500 hover:text-primary cursor-pointer w-5 h-5" />
             </div>
             <div className="space-y-6">
                 {loading ? (
-                    <p className="text-slate-500 text-sm">Loading your notes...</p>
+                    <p className="text-slate-500 text-sm">Cargando tus notas...</p>
                 ) : (
                     defaultNotes.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-4">

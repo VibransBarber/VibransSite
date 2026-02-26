@@ -5,7 +5,7 @@ Feature: HU4 - Gestión de Barberos
 
   Scenario: Ver perfiles de barberos en la página principal
     Given que el usuario entra a la barbería online
-    Then debería ver la sección "Meet the Masters of the Craft"
+    Then debería ver la sección "Conoce a los Maestros del Oficio"
     And el barbero "Marcus 'The Blade'" debería estar listado
     And el barbero "Julian V." debería estar listado
     And el barbero "Silas Stone" debería estar listado
