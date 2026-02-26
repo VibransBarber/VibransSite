@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Vibrans Barbershop</title>
-    <script type="text/javascript">
-      // Función para SPA en GitHub Pages
-      // Redirige las peticiones 404 de vuelta al index.html conservando la ruta y los query params/hash
-      // (Particularmente necesario para los access_tokens generados por Supabase Auth)
-      var segmentCount = 1;
 
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
-  </head>
-  <body>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Vibrans Barbershop</title>
+  <script type="text/javascript">
+    // Función para SPA en GitHub Pages
+    // Redirige las peticiones 404 de vuelta al index.html conservando la ruta y los query params/hash
+    // (Particularmente necesario para los access_tokens generados por Supabase Auth)
+    var segmentCount = 1; // 1 porque estamos en un subdirectorio (VibransSite)
+
+    var l = window.location;
+
+    // Si la URL arranca con /VibransSite/ nos aseguramos de no perderlo
+    var basePath = '/VibransSite/';
+    var pathName = l.pathname.startsWith(basePath)
+      ? l.pathname.substring(basePath.length)
+      : l.pathname.slice(1);
+
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      basePath + '?p=/' +
+      pathName.replace(/&/g, '~and~') +
+      (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+
+<body>
+</body>
+
 </html>
